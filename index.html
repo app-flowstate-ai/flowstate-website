@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowstate — Your focus, finally accounted for</title>
+    <meta
+      name="description"
+      content="Flowstate turns real, tracked focus into points, streaks, and rewards — with everything processed locally on your device. Join the waitlist."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Flowstate — Your focus, finally accounted for"
+    />
+    <meta
+      property="og:description"
+      content="A private, local-first study companion that turns real focus into points, streaks, and rewards you actually want."
+    />
+    <meta property="og:image" content="/assets/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700&family=Red+Hat+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ───────── Nav ───────── -->
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <img
+            src="assets/logo.svg"
+            alt=""
+            class="brand-mark"
+            width="32"
+            height="32"
+          />
+          <span class="brand-name">flowstate</span>
+        </a>
+        <button class="btn btn-ghost nav-cta" id="navCta">Join waitlist</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ───────── Hero ───────── -->
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Private &middot; Local &middot; Yours</p>
+          <h1 class="hero-headline">Your focus, finally<br />accounted for.</h1>
+          <p class="hero-sub">
+            Flowstate watches what you study, never what you don't, and turns
+            real focus into points, streaks, and rewards you actually want.
+            Everything happens on your device.
+          </p>
+
+          <form class="waitlist-form" id="waitlistForm" novalidate>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="email-input"
+              placeholder="you@school.edu"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span class="btn-label">Join the waitlist</span>
+            </button>
+          </form>
+          <p class="form-microcopy" id="formMicrocopy">
+            Be first when the beta opens. No spam, just one email.
+          </p>
+        </div>
+
+        <div class="wave-wrap" aria-hidden="true">
+          <svg
+            class="wave-svg"
+            viewBox="0 0 1200 200"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFCFA2" />
+                <stop offset="100%" stop-color="#FF79C9" />
+              </linearGradient>
+            </defs>
+            <!-- <path
+              class="wave-path"
+              d="M 0 100 C 60 100 90 40 150 40 C 210 40 240 160 300 160 C 360 160 390 60 450 60 C 510 60 540 130 600 130 C 660 130 690 90 750 90 C 810 90 840 110 900 110 C 960 110 990 70 1050 70 C 1080 70 1110 100 1200 100"
+              fill="none"
+              stroke="url(#waveGradient)"
+              stroke-width="3"
+              stroke-linecap="round"
+            /> -->
+            <path
+              class="wave-path"
+              d="M 0 100
+                C 60 20 120 20 180 100
+                 C 240 180 300 180 360 100
+                 C 420 45 480 45 540 100
+                 C 600 145 660 145 720 100
+                 C 780 75 840 75 900 100
+                 C 960 115 1020 115 1080 100
+                 C 1140 95 1170 95 1200 100"
+              fill="none"
+              stroke="url(#waveGradient)"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ───────── Features ───────── -->
+      <section class="features">
+        <div class="features-inner">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5Z"
+                />
+                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M9 22h6" />
+              </svg>
+            </div>
+            <h3>Reads your screen, not your life</h3>
+            <p>
+              Flowstate classifies what's on screen locally, then forgets it.
+              Only your focus score ever leaves your device.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 3v18h18" />
+                <path d="M7 15l4-6 3 4 5-8" />
+              </svg>
+            </div>
+            <h3>Scored the way real focus works</h3>
+            <p>
+              One distracted minute doesn't wreck your session. Flowstate
+              rewards consistency over perfection.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+            </div>
+            <h3>Rewards you'll actually chase</h3>
+            <p>
+              Coins for focused time. Streaks for showing up. Pulls for the
+              collection you're building.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ───────── How it works ───────── -->
+      <section class="how">
+        <div class="how-inner">
+          <p class="eyebrow">A session, start to finish</p>
+          <h2 class="section-heading">How it works</h2>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step-num">01</span>
+              <div class="step-body">
+                <h4>Set your session</h4>
+                <p>
+                  Pick a subject, a duration, and what you're actually trying to
+                  finish.
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">02</span>
+              <div class="step-body">
+                <h4>Study, tracked quietly</h4>
+                <p>
+                  Flowstate reads your screen locally and scores your focus as
+                  you go.
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">03</span>
+              <div class="step-body">
+                <h4>Earn as you focus</h4>
+                <p>
+                  Coins add up in real time. Todos check off. Your streak holds.
+                </p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">04</span>
+              <div class="step-body">
+                <h4>Cash in</h4>
+                <p>
+                  Pull for rewards, compare your week with friends, come back
+                  tomorrow.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ───────── Second CTA ───────── -->
+      <section class="cta-band">
+        <div class="cta-inner">
+          <h2 class="cta-headline">Be first in line.</h2>
+          <p class="cta-sub">
+            Studying deserves better tools. We're building them with you.
+          </p>
+
+          <form
+            class="waitlist-form waitlist-form-alt"
+            id="waitlistFormAlt"
+            novalidate
+          >
+            <label for="email-alt" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email-alt"
+              name="email"
+              class="email-input"
+              placeholder="you@school.edu"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary" id="submitBtnAlt">
+              <span class="btn-label">Join the waitlist</span>
+            </button>
+          </form>
+          <p class="form-microcopy" id="formMicrocopyAlt">
+            No spam, just one email when the beta opens.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ───────── Footer ───────── -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img
+            src="assets/logo.svg"
+            alt=""
+            class="brand-mark"
+            width="28"
+            height="28"
+          />
+          <div>
+            <span class="brand-name">flowstate</span>
+            <p class="footer-tagline">Study like you mean it.</p>
+          </div>
+        </div>
+        <nav class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="mailto:hello@flowstateapp.com">Contact</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Flowstate</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
