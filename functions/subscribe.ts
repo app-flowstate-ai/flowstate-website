@@ -52,18 +52,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         },
         body: JSON.stringify({
           email_address: email,
-          status: "SUBSCRIBED",
+          status: "subscribed",
         }),
       },
     );
-
-    // EmailOctopus returns 409-style duplicate errors if the email is
-    // already on the list — treat that as a success from the user's side,
-    // they're already waitlisted either way.
     if (!res.ok) {
       const errBody = await res.json().catch(() => ({}));
       console.error('EmailOctopus error', res.status, JSON.stringify(errBody))
-      
+
       const isDuplicate = JSON.stringify(errBody)
         .toLowerCase()
         .includes("already");
