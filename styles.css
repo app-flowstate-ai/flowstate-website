@@ -137,6 +137,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.05em;
   font-weight: 600;
   font-size: 1.15rem;
+  margin-top: 3px;
   color: var(--cream);
 }
 

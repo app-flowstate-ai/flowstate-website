@@ -17,66 +17,68 @@
 // against a live account.
 
 interface Env {
-  EMAILOCTOPUS_API_KEY: string
-  EMAILOCTOPUS_LIST_ID: string
+  EMAILOCTOPUS_API_KEY: string;
+  EMAILOCTOPUS_LIST_ID: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { request, env } = context
+  const { request, env } = context;
 
-  let email: string
+  let email: string;
   try {
-    const body = await request.json<{ email?: string }>()
-    email = (body.email || '').trim()
+    const body = await request.json<{ email?: string }>();
+    email = (body.email || "").trim();
   } catch {
-    return json({ error: 'Invalid request body' }, 400)
+    return json({ error: "Invalid request body" }, 400);
   }
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || !emailPattern.test(email)) {
-    return json({ error: 'Invalid email address' }, 400)
+    return json({ error: "Invalid email address" }, 400);
   }
 
   if (!env.EMAILOCTOPUS_API_KEY || !env.EMAILOCTOPUS_LIST_ID) {
-    return json({ error: 'Server not configured' }, 500)
+    return json({ error: "Server not configured" }, 500);
   }
 
   try {
     const res = await fetch(
       `https://api.emailoctopus.com/lists/${env.EMAILOCTOPUS_LIST_ID}/contacts`,
       {
-        method: 'POST',
+        method: "POST",
         headers: {
           Authorization: `Bearer ${env.EMAILOCTOPUS_API_KEY}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email_address: email,
-          status: 'subscribed',
+          status: "SUBSCRIBED",
         }),
-      }
-    )
+      },
+    );
 
     // EmailOctopus returns 409-style duplicate errors if the email is
     // already on the list — treat that as a success from the user's side,
     // they're already waitlisted either way.
     if (!res.ok) {
-      const errBody = await res.json().catch(() => ({}))
-      const isDuplicate = JSON.stringify(errBody).toLowerCase().includes('already')
+      const errBody = await res.json().catch(() => ({}));
+      const isDuplicate = JSON.stringify(errBody)
+        .toLowerCase()
+        .includes("already");
       if (!isDuplicate) {
-        return json({ error: 'Could not add to waitlist' }, 502)
+        return json({ error: "Could not add to waitlist" }, 502);
       }
     }
 
-    return json({ success: true })
+    return json({ success: true });
   } catch {
-    return json({ error: 'Could not reach waitlist provider' }, 502)
+    return json({ error: "Could not reach waitlist provider" }, 502);
   }
-}
+};
 
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json' },
-  })
+    headers: { "Content-Type": "application/json" },
+  });
 }
