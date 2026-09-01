@@ -62,6 +62,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     // they're already waitlisted either way.
     if (!res.ok) {
       const errBody = await res.json().catch(() => ({}));
+      console.error('EmailOctopus error', res.status, JSON.stringify(errBody))
+      
       const isDuplicate = JSON.stringify(errBody)
         .toLowerCase()
         .includes("already");
